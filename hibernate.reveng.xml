@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+	<table name="ADMIN" schema="HOUSE">
+		<primary-key>
+			<generator class="sequence"></generator>
+
+			<key-column name="ID" type="java.lang.Integer" />
+		</primary-key>
+		<column name="ADMIN_NAME" type="java.lang.String"></column>
+		<column name="ADMIN_PASSWORD" type="java.lang.String"></column>
+	</table>
+	<table name="CITY" schema="HOUSE">
+		<primary-key>
+			<generator class="sequence"></generator>
+
+			<key-column name="ID" type="java.lang.Integer" />
+		</primary-key>
+	</table>
+	<table name="HOUSE_INFO" schema="HOUSE">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="ESTATE" schema="HOUSE">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="PROVINCE" schema="HOUSE">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="STRUSTURE" schema="HOUSE">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="USERS" schema="HOUSE">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="ORDERS" schema="HOUSE">
+		<primary-key>
+			<generator class="assigned"></generator>
+		</primary-key>
+	</table>
+	<table name="ADDRESS" schema="RESERVATION">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="USERS" schema="RESERVATION">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="COMMENTS" schema="RESERVATION">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="ORDERS" schema="RESERVATION">
+		<primary-key>
+			<generator class="assigned"></generator>
+		</primary-key>
+	</table>
+	<table name="GOODS" schema="RESERVATION">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="DETAILS" schema="RESERVATION">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+	<table name="CATEGORY" schema="RESERVATION">
+		<primary-key>
+			<generator class="sequence"></generator>
+		</primary-key>
+	</table>
+<table name="SHOP" schema="RESERVATION">
+	<primary-key>
+		<generator class="sequence"></generator>
+	</primary-key>
+</table>
+</hibernate-reverse-engineering>
