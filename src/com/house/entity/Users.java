@@ -1,6 +1,6 @@
 package com.house.entity;
 
-import java.math.BigDecimal;
+import java.lang.Integer;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +12,7 @@ public class Users implements java.io.Serializable {
 
 	// Fields
 
-	private BigDecimal id;
+	private Integer id;
 	private String userName;
 	private String userPassword;
 	private String userPhone;
@@ -40,11 +40,11 @@ public class Users implements java.io.Serializable {
 
 	// Property accessors
 
-	public BigDecimal getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(BigDecimal id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

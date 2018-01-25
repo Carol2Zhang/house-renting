@@ -1,6 +1,6 @@
 package com.house.entity;
 
-import java.math.BigDecimal;
+import java.lang.Integer;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +12,7 @@ public class HouseInfo implements java.io.Serializable {
 
 	// Fields
 
-	private BigDecimal id;
+	private Integer id;
 	private Users usersByHouseUserOwnerId;
 	private Estate estate;
 	private City city;
@@ -22,8 +22,8 @@ public class HouseInfo implements java.io.Serializable {
 	private String houseAddress;
 	private String housePrice;
 	private String housePicture;
-	private BigDecimal houseStatus;
-	private BigDecimal houseRent;
+	private Integer houseStatus;
+	private Integer houseRent;
 	private Set orderses = new HashSet(0);
 
 	// Constructors
@@ -36,8 +36,8 @@ public class HouseInfo implements java.io.Serializable {
 	public HouseInfo(Users usersByHouseUserOwnerId, Estate estate, City city,
 			Strusture strusture, Province province,
 			Users usersByHouseUserRenterId, String houseAddress,
-			String housePrice, String housePicture, BigDecimal houseStatus,
-			BigDecimal houseRent, Set orderses) {
+			String housePrice, String housePicture, Integer houseStatus,
+			Integer houseRent, Set orderses) {
 		this.usersByHouseUserOwnerId = usersByHouseUserOwnerId;
 		this.estate = estate;
 		this.city = city;
@@ -54,11 +54,11 @@ public class HouseInfo implements java.io.Serializable {
 
 	// Property accessors
 
-	public BigDecimal getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(BigDecimal id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -134,19 +134,19 @@ public class HouseInfo implements java.io.Serializable {
 		this.housePicture = housePicture;
 	}
 
-	public BigDecimal getHouseStatus() {
+	public Integer getHouseStatus() {
 		return this.houseStatus;
 	}
 
-	public void setHouseStatus(BigDecimal houseStatus) {
+	public void setHouseStatus(Integer houseStatus) {
 		this.houseStatus = houseStatus;
 	}
 
-	public BigDecimal getHouseRent() {
+	public Integer getHouseRent() {
 		return this.houseRent;
 	}
 
-	public void setHouseRent(BigDecimal houseRent) {
+	public void setHouseRent(Integer houseRent) {
 		this.houseRent = houseRent;
 	}
 

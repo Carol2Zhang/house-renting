@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<include file="com/house/struts/action/AdminAction-struts.xml"></include>
+<include file="com/house/struts/action/UserAction-struts.xml"></include></struts>    

@@ -6,7 +6,7 @@
 -->
 <hibernate-mapping>
     <class name="com.house.entity.Users" table="USERS" schema="HOUSE">
-        <id name="id" type="java.math.BigDecimal">
+        <id name="id" type="java.lang.Integer">
             <column name="ID" precision="22" scale="0" />
             <generator class="sequence">
             	<param name="sequence">SEQ_USERS</param>

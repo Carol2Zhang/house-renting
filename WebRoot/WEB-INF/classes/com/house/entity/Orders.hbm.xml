@@ -16,7 +16,7 @@
         <many-to-one name="users" class="com.house.entity.Users" fetch="select">
             <column name="ORDER_USER_ID" precision="22" scale="0" />
         </many-to-one>
-        <property name="ordersStatus" type="java.math.BigDecimal">
+        <property name="ordersStatus" type="java.lang.Integer">
             <column name="ORDERS_STATUS" precision="22" scale="0" />
         </property>
     </class>

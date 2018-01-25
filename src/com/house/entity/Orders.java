@@ -1,6 +1,6 @@
 package com.house.entity;
 
-import java.math.BigDecimal;
+import java.lang.Integer;
 
 /**
  * Orders entity. @author MyEclipse Persistence Tools
@@ -13,7 +13,7 @@ public class Orders implements java.io.Serializable {
 	private String ordersNumber;
 	private HouseInfo houseInfo;
 	private Users users;
-	private BigDecimal ordersStatus;
+	private Integer ordersStatus;
 
 	// Constructors
 
@@ -28,7 +28,7 @@ public class Orders implements java.io.Serializable {
 
 	/** full constructor */
 	public Orders(String ordersNumber, HouseInfo houseInfo, Users users,
-			BigDecimal ordersStatus) {
+			Integer ordersStatus) {
 		this.ordersNumber = ordersNumber;
 		this.houseInfo = houseInfo;
 		this.users = users;
@@ -61,11 +61,11 @@ public class Orders implements java.io.Serializable {
 		this.users = users;
 	}
 
-	public BigDecimal getOrdersStatus() {
+	public Integer getOrdersStatus() {
 		return this.ordersStatus;
 	}
 
-	public void setOrdersStatus(BigDecimal ordersStatus) {
+	public void setOrdersStatus(Integer ordersStatus) {
 		this.ordersStatus = ordersStatus;
 	}
 

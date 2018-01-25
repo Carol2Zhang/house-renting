@@ -6,7 +6,7 @@
 -->
 <hibernate-mapping>
     <class name="com.house.entity.HouseInfo" table="HOUSE_INFO" schema="HOUSE">
-        <id name="id" type="java.math.BigDecimal">
+        <id name="id" type="java.lang.Integer">
             <column name="ID" precision="22" scale="0" />
             <generator class="sequence">
             	<param name="sequence">SEQ_HOUSE</param>
@@ -39,10 +39,10 @@
         <property name="housePicture" type="java.lang.String">
             <column name="HOUSE_PICTURE" length="100" />
         </property>
-        <property name="houseStatus" type="java.math.BigDecimal">
+        <property name="houseStatus" type="java.lang.Integer">
             <column name="HOUSE_STATUS" precision="22" scale="0" />
         </property>
-        <property name="houseRent" type="java.math.BigDecimal">
+        <property name="houseRent" type="java.lang.Integer">
             <column name="HOUSE_RENT" precision="22" scale="0" />
         </property>
         <set name="orderses" inverse="true">

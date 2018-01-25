@@ -21,6 +21,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+ 	<a href="user_toLogin.action"> 登录</a>
+ 	<a href="user_toRegister.action"> 注册</a>
     This is my JSP page. <br>
+    ${loginedUser.userName}
+    <a href="user_logout.action"> 退出登录</a> 
   </body>
 </html>

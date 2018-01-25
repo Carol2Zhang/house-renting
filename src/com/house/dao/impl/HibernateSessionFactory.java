@@ -1,4 +1,4 @@
-package com.house.dao;
+package com.house.dao.impl;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

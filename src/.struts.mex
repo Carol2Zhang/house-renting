@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <include file="AdminAction-struts.xml" location="10,10" size="150,30" />
+  <include file="UserAction-struts.xml" location="80,106" size="150,30" />
+</Struts2Diagram>
+

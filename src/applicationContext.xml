@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop" 
+xmlns:tx="http://www.springframework.org/schema/tx"
+xmlns:mvc="http://www.springframework.org/schema/mvc"
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+
+	<!--<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation"
+			value="classpath:hibernate.cfg.xml">
+		</property>
+	</bean>-->
+	
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="oracle.jdbc.OracleDriver" />
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:orcl" />
+		<property name="user" value="house" />
+		<property name="password" value="123456" />
+		<property name="initialPoolSize" value="10" />
+		<property name="minPoolSize" value="2" />
+		<property name="maxPoolSize" value="100" />
+		<property name="idleConnectionTestPeriod" value="60" />
+		<property name="maxIdleTime" value="60" />
+		<property name="acquireIncrement" value="10" />
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="mappingResources">
+			<list>
+				<value>com/house/entity/Orders.hbm.xml</value>
+				<value>com/house/entity/City.hbm.xml</value>
+				<value>com/house/entity/Strusture.hbm.xml</value>
+				<value>com/house/entity/Province.hbm.xml</value>
+				<value>com/house/entity/HouseInfo.hbm.xml</value>
+				<value>com/house/entity/Users.hbm.xml</value>
+				<value>com/house/entity/Estate.hbm.xml</value>
+				<value>com/house/entity/Admin.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle9Dialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- DAO -->
+	<bean id="adminDao" class="com.house.dao.impl.AdminDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="userDao" class="com.house.dao.impl.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- Transaction -->
+	<bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="register*" propagation="REQUIRED" />
+			<tx:method name="*" propagation="SUPPORTS" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut expression="execution(* com.house.biz.*.*(..))" id="bizMethods"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="bizMethods"/>
+	</aop:config>
+	
+	<!-- Biz -->
+	<bean id="adminBiz" class="com.house.biz.impl.AdminBizImpl">
+		<property name="adminDao" ref="adminDao"></property>
+	</bean>
+	<bean id="usersBiz" class="com.house.biz.impl.UserBizImpl">
+		<property name="userDao" ref="userDao" />
+	</bean>
+	
+
+	<!-- ACTION -->
+	<bean id="adminAction" class="com.house.struts.action.AdminAction">
+		<property name="adminBiz" ref="adminBiz"></property>
+	</bean>
+	<bean id="userAction" class="com.house.struts.action.UserAction">
+		<property name="usersBiz" ref="usersBiz"></property>
+	</bean>
+	
+	</beans>
